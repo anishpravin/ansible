@@ -1,0 +1,5 @@
+---
+ec2_keypair: anish
+ec2_instance_type: t2.micro
+ec2_region: us-east-2
+ec2_instance_count: 1
