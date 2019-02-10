@@ -1,13 +1,10 @@
-withCredentials([string(credentialsId: 'AWS_ACCESS_KEY_ID', variable: 'ACCESS_KEY_ID'), string(credentialsId: 'AWS_SECRET_ACCESS_KEY', variable: 'SECRET_ACCESS_KEY')]) {
+withCredentials([
 
-set +x
-export AWS_ACCESS_KEY_ID=${ACCESS_KEY_ID}
-export AWS_SECRET_ACCESS_KEY=${SECRET_ACCESS_KEY}
-
-}
+string(credentialsId: 'AWS_ACCESS_KEY_ID', variable: 'ACCESS_KEY_ID'), 
+string(credentialsId: 'AWS_SECRET_ACCESS_KEY', variable: 'SECRET_ACCESS_KEY')
+])
 
 {
-
 
 
 node ('master-slave')
@@ -23,6 +20,9 @@ checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleC
  						 
 	stage('ansible provisioning') {
 	sh '''
+	set +x
+    export AWS_ACCESS_KEY_ID=${ACCESS_KEY_ID}
+    export AWS_SECRET_ACCESS_KEY=${SECRET_ACCESS_KEY}
 	ansible-playbook -i hosts main.yml
 	'''
 	                     }
