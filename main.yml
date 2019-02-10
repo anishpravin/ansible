@@ -1,6 +1,6 @@
 ---
 - name: provisioning 
-  hosts: localhost
+  hosts: local
   connection: local 
   roles:
     - provisioning
@@ -15,7 +15,7 @@
 
 
 - name: cleaning
-  hosts: localhost
+  hosts: local
   connection: local
   roles:
       - clean
