@@ -1,5 +1,7 @@
 ---
-- roles:
-     - provisioning
-     - configure
-     - clean
+- name: Install provisioning configure configure
+  hosts: all
+  roles:
+    - provisioning
+    - configure
+    - clean
