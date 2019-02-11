@@ -1,6 +1,0 @@
-- name: cleaning
-  hosts: local
-  connection: local
-  roles:
-      - clean
-
