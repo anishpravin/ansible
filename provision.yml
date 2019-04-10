@@ -1,0 +1,6 @@
+---
+- name: provisioning 
+  hosts: local
+  connection: local 
+  roles:
+    - provisioning

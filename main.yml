@@ -1,0 +1,21 @@
+---
+- name: provisioning 
+  hosts: local
+  connection: local 
+  roles:
+    - provisioning
+
+- name: configuring
+  hosts: launched
+  remote_user: ec2-user
+  become: yes
+  become_method: sudo
+  roles:
+    - configure
+
+
+- name: cleaning
+  hosts: local
+  connection: local
+  roles:
+      - clean

@@ -1,0 +1,6 @@
+---
+- name: remove the entries of ec2 vm in ansible host file
+  lineinfile:
+        path: hosts
+        regexp: "ansible_ssh_user=ec2-user"
+        state: absent

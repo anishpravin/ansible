@@ -1,0 +1,12 @@
+---
+- name: Install httpd on provisioned instance
+  yum:
+   name: httpd
+   state: present
+
+
+- name: Start httpd service
+  service:
+      name: httpd
+      state: started
+
